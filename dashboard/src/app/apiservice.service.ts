@@ -12,8 +12,14 @@ import 'rxjs/add/operator/map';
 export class ApiserviceService {
  data;
   constructor(private http: Http) { }
-  showTotalCount() {
+  showSummery() {
 	return this.http.get(environment.API_URL)
     .map((res:Response) => res.json());
   }
+  
+  showReport() {
+	return this.http.get(environment.API_URL+"report")
+    .map((res:Response) => res.json());
+  }
+  
 }

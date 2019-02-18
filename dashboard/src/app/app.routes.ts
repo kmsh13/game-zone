@@ -1,4 +1,5 @@
 import {HomeComponent} from "./pages/home/home.component";
+import { ReportComponent } from './pages/report/report.component';
 
 export const appRoutes=[
     {
@@ -11,7 +12,7 @@ export const appRoutes=[
         component: HomeComponent
     },
     {
-        path: 'others',
-        loadChildren:'./pages/others/others.module#OthersModule',
+        path: 'report',
+        component: ReportComponent
     },
 ];

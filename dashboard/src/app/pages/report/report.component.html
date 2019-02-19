@@ -1,22 +1,21 @@
 <div class="wrapper wrapper-content">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Current Catagory : {{selectedCategory}}</h5>
-                    <div class="ibox-content">
-                        <b>Select Different Catagory</b> :
-                        <select [ngModel]="selectedCategory" (ngModelChange)="onChange($event)"
-                            name="sel2">
-                            <option [value]="i" *ngFor="let i of catagory">{{i}}</option>
-                        </select>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Sales Catagory : {{selectedCategory}}</h5>
+                        <div class="ibox-content">
+                            <b>Select Different Catagory</b> :
+                            <select [ngModel]="selectedCategory" (ngModelChange)="onChange($event)" name="sel2">
+                                <option [value]="i" *ngFor="let i of catagory">{{i}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="row" [hidden]='selectedCategory != "Genre"'> 
+        <div class="row" [hidden]='selectedCategory != "Genre"'>
             <div class="col-lg-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -28,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <div class="col-lg-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -57,95 +56,151 @@
                 </div>
             </div>
         </div>
-
-
-
-
-            <div class="row" [hidden]='selectedCategory != "Publisher"'> 
-                    <div class="col-lg-6">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Publisher Share (Till date)</h5>
-                                <div class="ibox-content">
-                                    <div *ngIf="chartPublisher">
-                                        <canvas id="canvasPublisher">{{ chartPublisher }}</canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Top Publisher - All the time</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <table class="table table-hover margin bottom">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 1%" class="text-center">Position.</th>
-                                            <th>Publisher Name</th>
-                                            <th class="text-center">No of Game</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let pub of publisherArr;let i = index">
-                                            <td class="text-center"> {{i+1}}</td>
-                                            <td>{{pub && pub[1]}}</td>
-                                            <td class="text-center">
-                                                <span class="label label-primary">{{pub && pub[0]}}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+        <div class="row" [hidden]='selectedCategory != "Publisher"'>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Publisher Share (Till date)</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartPublisher">
+                                <canvas id="canvasPublisher">{{ chartPublisher }}</canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="row" [hidden]='selectedCategory != "Year"'> 
-                        <div class="col-lg-6">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Year Share (Till date)</h5>
-                                    <div class="ibox-content">
-                                        <div *ngIf="chartYear">
-                                            <canvas id="canvasYear">{{ chartYear }}</canvas>
-                                        </div>
-                                    </div>
-                                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Top Publisher - All the time</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover margin bottom">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%" class="text-center">Position.</th>
+                                    <th>Publisher Name</th>
+                                    <th class="text-center">No of Game</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pub of publisherArr;let i = index">
+                                    <td class="text-center"> {{i+1}}</td>
+                                    <td>{{pub && pub[1]}}</td>
+                                    <td class="text-center">
+                                        <span class="label label-primary">{{pub && pub[0]}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" [hidden]='selectedCategory != "Year"'>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Year Share (Till date)</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartYear">
+                                <canvas id="canvasYear">{{ chartYear }}</canvas>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Top Year - All the time</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">Position.</th>
-                                                <th>Year</th>
-                                                <th class="text-center">No of Game</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let year of yearArr;let i = index">
-                                                <td class="text-center"> {{i+1}}</td>
-                                                <td>{{year && year[1]}}</td>
-                                                <td class="text-center">
-                                                    <span class="label label-primary">{{year && year[0]}}</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>  
                     </div>
-        
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Top Year - All the time</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover margin bottom">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%" class="text-center">Position.</th>
+                                    <th>Year</th>
+                                    <th class="text-center">No of Game</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let year of yearArr;let i = index">
+                                    <td class="text-center"> {{i+1}}</td>
+                                    <td>{{year && year[1]}}</td>
+                                    <td class="text-center">
+                                        <span class="label label-primary">{{year && year[0]}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <h3>Usage Reports</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Free Games Availibity</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartFree">
+                                <canvas id="canvasFree">{{ chartFree }}</canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Multiplayer Games Availibity</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartCategoryMultiplayer">
+                                <canvas id="canvasCategoryMultiplayer">{{ chartCategoryMultiplayer }}</canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Estimated Player</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartPlayersEstimate">
+                                <canvas id="canvasPlayersEstimate">{{ chartPlayersEstimate }}</canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Multiplayer Games Availibity</h5>
+                        <div class="ibox-content">
+                            <div *ngIf="chartCategoryMultiplayer">
+                                <canvas id="canvasCategoryMultiplayer">{{ chartCategoryMultiplayer }}</canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
+</div>

@@ -18,9 +18,15 @@ export class ReportComponent implements OnInit {
   yearData = [];
   yearLables = [];
   chartFree = [];
+<<<<<<< HEAD
   chartGenre = [];
   chartPublisher = [];
   chartYear = [];
+=======
+  chartGenre = [];  
+  chartPublisher = [];  
+  chartYear = [];  
+>>>>>>> a79d405b20c1422955c7659b72b6484c2042c49f
   freeData = [];
   chartPlayersEstimate = [];
   playersEstimateData = [];
@@ -125,6 +131,16 @@ export class ReportComponent implements OnInit {
               data: this.playersEstimateData
             }
           ]
+<<<<<<< HEAD
+=======
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Estimated Player'
+          }
+>>>>>>> a79d405b20c1422955c7659b72b6484c2042c49f
         }
       });
     });

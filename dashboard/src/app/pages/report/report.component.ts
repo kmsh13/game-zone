@@ -18,15 +18,16 @@ export class ReportComponent implements OnInit {
   yearData = [];
   yearLables = [];
   chartFree = [];
-  chartCategoryMultiplayer = [];
-  chartGenre = []; // This will hold our chart info
-  chartPublisher = []; // This will hold our chart info
-  chartYear = []; // This will hold our chart info
+  chartGenre = [];
+  chartPublisher = [];
+  chartYear = [];
   freeData = [];
-  chartPlayersEstimate=[];
-  playersEstimateData=[];
-  playersEstimateLabel=[];
+  chartPlayersEstimate = [];
+  playersEstimateData = [];
+  playersEstimateLabel = [];
   categoryMultiplayerData = [];
+  categoryMultiplayerLabel = [];
+  chartCategoryMultiplayer = [];
   catagory = ["Genre", "Publisher", "Year"];
   selectedCategory = 'Genre';
   onChange(newValue) {
@@ -92,7 +93,7 @@ export class ReportComponent implements OnInit {
             data: this.freeData,
             backgroundColor: ['#004c6d', '#255e7e', '#3d708f', '#5383a1', '#6996b3', '#7faac6', '#94bed9', '#abd2ec', '#c1e7ff']
           }],
-          labels: ["Free Availble", "Free not Availble"]
+          labels: ["Free Availble", "Free not availble"]
         },
         type: 'pie'
       });
@@ -105,26 +106,27 @@ export class ReportComponent implements OnInit {
             data: this.categoryMultiplayerData,
             backgroundColor: ['#004c6d', '#255e7e', '#3d708f', '#5383a1', '#6996b3', '#7faac6', '#94bed9', '#abd2ec', '#c1e7ff']
           }],
-          labels: ["Multiplayer Availble", "Multiplayer not Availble"]
+          labels: ["Multiplayer availble", "Multiplayer not availble"]
         },
         type: 'pie'
       });
-
       data.playersEstimate.forEach(element => {
-        this.playersEstimateData.push({label: element[0],data: [element[1]]});
+        this.playersEstimateData.push(element[1]);
         this.playersEstimateLabel.push(element[0]);
-        
       });
       this.chartPlayersEstimate = new Chart('canvasPlayersEstimate', {
+        type: 'bar',
         data: {
-          datasets: this.playersEstimateData,
-
-        },
-		labels: this.playersEstimateLabel,
-        type: 'horizontalBar'
+          labels: this.playersEstimateLabel,
+          datasets: [
+            {
+              label: "Estimated Players",
+              backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#0E6655", "#2E86C1", "#F0B27A", "#2874A6", "#EC7063"],
+              data: this.playersEstimateData
+            }
+          ]
+        }
       });
-
-
     });
   }
 }

@@ -28,8 +28,6 @@ describe('AppComponent', () => {
   it(`should have title element as GameZone'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-	
-	console.log(app);
     expect(app.title).toEqual('GameZone');
   }));
   

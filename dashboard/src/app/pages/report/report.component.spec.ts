@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 describe('ReportComponent', () => {
   let component: ReportComponent;
   let fixture: ComponentFixture<ReportComponent>;
+  let h1:        HTMLElement;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
 		imports: [
@@ -25,4 +26,8 @@ describe('ReportComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should display original title - Reports', () => {
+	  h1 = fixture.nativeElement.querySelector('h1');
+      expect(h1.textContent).toContain("Reports");
+});
 });

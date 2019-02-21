@@ -1,0 +1,29 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                   
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                      <span class="clear">
+                          <span class="block m-t-xs">
+                          <h3 class="font-bold headline" style><span style="color:#ffa600;">Game</span>Zone</h3>
+                      </span>
+                         
+                      </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    <span style="color:#ffa600;">G</span>Z
+                </div>
+            </li>
+            <li [ngClass]="{active: activeRoute('home')}">
+                <a [routerLink]="['./home']"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
+            </li>
+            <li [ngClass]="{active: activeRoute('report')}">
+                <a [routerLink]="['./report']"><i class="fa fa-desktop"></i> <span class="nav-label">Report</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
